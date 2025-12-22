@@ -4,6 +4,7 @@ const validateSignupData = require("../utils/validateSignupData");
 
 // SIGNUP
 const signup = async (req, res) => {
+  
   try {
     validateSignupData(req);
 
