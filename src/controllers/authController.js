@@ -1,6 +1,8 @@
 const bcrypt = require("bcryptjs");
 const User = require("../models/user");
 const validateSignupData = require("../utils/validateSignupData");
+// Test the gi commit
+
 
 // SIGNUP
 const signup = async (req, res) => {

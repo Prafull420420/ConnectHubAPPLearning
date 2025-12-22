@@ -4,6 +4,8 @@ const { validateSignupData, validateLoginData } = require("../Validators/validat
 const { userAuth } = require("../middlewares/auth");
 
 const authRouter = express.Router();
+// const authRouter = express.Router();
+// const authRouter = express.Router();
 
 // ⭐ SIGNUP ROUTE
 authRouter.post("/signup", async (req, res) => {
