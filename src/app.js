@@ -6,7 +6,7 @@ const authRouter = require("./routes/auth");
 
 //const { use } = require("react");
 const User= require("./models/user");
-const userRoutes = require("./routes/userRoutes");
+const userRoutes = require("./routes/user");
 
 const PORT=3000;
 //const express= require("express");
@@ -14,10 +14,18 @@ const PORT=3000;
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
+//const authRouter = require("./src/routes/auth");
+const profileRouter = require("./routes/profile");
+const requestRouter = require("./routes/request");
+const userRouter = require("./routes/user");
 
+app.use("/", authRouter);
+app.use("/", profileRouter);
+app.use("/", requestRouter);
+app.use("/", userRouter);
 //app.use("/", userRoutes);
-app. use("/", authRouter);
-
+ // app. use("/", authRouter);
+ // app.use("/", profileRouter);
 // ⭐ Simple home route
 app.get("/", (req, res) => {
     res.send("Welcome to DevTinder Backend!");

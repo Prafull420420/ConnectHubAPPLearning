@@ -3,6 +3,8 @@ const User = require("../models/user");
 const { validateSignupData, validateLoginData } = require("../Validators/validation");
 const { userAuth } = require("../middlewares/auth");
 
+
+
 const authRouter = express.Router();
 // const authRouter = express.Router();
 // const authRouter = express.Router();
@@ -103,9 +105,17 @@ authRouter.get("/profile", userAuth, async (req, res) => {
 });
 
 // ⭐ LOGOUT ROUTE
-authRouter.post("/logout", (req, res) => {
-    res.clearCookie("token");
-    res.send({ message: "Logged out successfully!" });
+// authRouter.post("/logout", (req, res) => {
+//     res.clearCookie("token");
+//     res.send({ message: "Logged out successfully!" });
+// });
+authRouter.post("/logout", async (req, res) => {
+  res
+    .cookie("token", null, {
+      expires: new Date(Date.now()),
+      httpOnly: true
+    })
+    .send("User Logged out successfully");
 });
 
 module.exports = authRouter;
